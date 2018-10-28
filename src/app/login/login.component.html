@@ -1,0 +1,29 @@
+<div class="container my-4 px-5">
+  <h2>Sign In</h2>
+  <hr>
+
+  <button class="btn btn-primary" routerLink="/add-question" routerLinkActive="active">Test Routing</button>
+  <!-- {{addQuestionForm.value | json}}   -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="">Registration No</label>
+      <input type="text" class="form-control" formControlName="registrationNo" [class.is-invalid]="registrationNo.invalid && registrationNo.touched">
+      <div *ngIf="registrationNo.invalid && registrationNo.touched">
+        <small *ngIf="registrationNo.errors ?.required" class="text-danger">Registration number is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="text" class="form-control" formControlName="password">
+      <!-- <div *ngIf="">
+        <small *ngIf="" class="text-danger">Question is required</small>
+      </div> -->
+    </div>
+    <button class="btn btn-block btn-primary">Login</button>
+    <button (click)="auth.googleLogin()" class="btn btn-secondary btn-block">
+      <i class="fa fa-google"></i> Connect Google
+    </button>
+  </form>
+  
+
+</div>
