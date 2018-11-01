@@ -1,11 +1,15 @@
+<app-layout>
+
 <div class="container my-4 px-5">
   <h2>Add Question</h2>
-  <button class="btn btn-primary"  routerLink="" routerLinkActive="active">Home</button>
+  
   <hr>
   
     <!-- {{addQuestionForm.value | json}}   -->
   <form [formGroup]="addQuestionForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
+      <input type="hidden" formControlName="$key">
+      <input type="hidden" formControlName="date">
       <label for="">Question</label>
       <input type="text" [class.is-invalid]="questionDef.invalid && questionDef.touched" class="form-control" formControlName="questionDef">
       <div *ngIf="questionDef.invalid && questionDef.touched">
@@ -21,7 +25,7 @@
         <option value="MySql">MySQL</option>
         <option value="Angular">Angular</option>
         <option value="Vue">Vue</option>
-        <option value="ReatJs">ReactJs</option>
+        <option value="ReactJs">ReactJs</option>
         <option value=".NET">.NET</option>
         <option value="MongoDB">MongoDB</option>
         <option value="Other">Other</option>
@@ -38,6 +42,8 @@
         <textarea class="form-control mt-1" rows="2" [formControlName]="i"></textarea>
       </div>
     </div>
-    <button [disabled]="!addQuestionForm.valid" class="btn btn-block btn-primary" >Add Question</button>
+    <button [disabled]="!addQuestionForm.valid" class="btn btn-block btn-primary">Add Question</button>
   </form>
 </div>
+
+</app-layout>

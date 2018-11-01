@@ -1,4 +1,6 @@
 export interface Question {
+  id?:string,
+  date:string,
   questionDef: string;
   language: string;
   answer: string;
@@ -8,6 +10,8 @@ export interface Question {
     }
   ];
 }
+
+
 
 export interface User {
   uid: string;

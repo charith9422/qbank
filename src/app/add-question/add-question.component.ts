@@ -4,6 +4,9 @@ import { FormGroup , FormBuilder, FormArray, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Question } from '../models/models';
+import { Router, RouterModule } from '@angular/router';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
+
 
 
 
@@ -13,12 +16,17 @@ import { Question } from '../models/models';
   styleUrls: ['./add-question.component.css']
 })
 export class AddQuestionComponent implements OnInit {
-
+  
   addQuestionForm : FormGroup;
+  dateAdded: string;
   private questionCollection: AngularFirestoreCollection<Question>;
+  //submitted:boolean;   
+
+
+  
 
   questions: Observable<Question[]>;
-  constructor(private fb : FormBuilder ,private afs : AngularFirestore) {
+  constructor(private fb : FormBuilder,private afs : AngularFirestore,private router:Router,private route:RouterModule) {//
     this.questionCollection = afs.collection<Question>('questions'); 
     this.questions = this.questionCollection.valueChanges();
   }
@@ -51,6 +59,8 @@ export class AddQuestionComponent implements OnInit {
 
   ngOnInit() {
     this.addQuestionForm = this.fb.group({
+      $key : [null],
+      date:[],
       questionDef : ['',[Validators.required]],
       language : [''],
       answer : ['',[Validators.required]],
@@ -58,11 +68,32 @@ export class AddQuestionComponent implements OnInit {
     });  
   }
 
+  /*formatDate(date:Date):string{
+    const day = date.getDate();
+    const month = date.getMonth()+1;
+    const year = date.getFullYear();
+
+    return '${year}-${month}-${day}'
+
+  }
+
+  setDate(dateAdded){
+    this.dateAdded = this.formatDate(dateAdded);
+  }
+*/
   onSubmit() {
     console.log(this.addQuestionForm.value);
+    
     this.addQuestion(this.addQuestionForm.value);
     
+  
 
+    
+
+  }
+
+  redirect(){
+    this.router.navigate(['/questions']);
   }
 
 

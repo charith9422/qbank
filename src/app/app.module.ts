@@ -16,8 +16,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
-
-
+import { QuestionsService } from './services/questions.service';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { UiModule } from './ui/ui.module';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AppComponent,
     routingComponents,
     PageNotFoundComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    
+  
     
   ],
   imports: [
@@ -36,9 +41,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AngularFireStorageModule,
     AngularFireAuthModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    UiModule,
+    //NgbModule.forRoot()
+   // BsDropdownModule.forRoot(),
+    //CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
