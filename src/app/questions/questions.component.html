@@ -1,6 +1,8 @@
 <app-header></app-header>
+
 <div class="container pt-2">
     <div *ngIf="questions?.length > 0;else loadingData" class=" mt-5 p-3">
+                    
         <ul *ngFor="let question of questions | paginate : { itemsPerPage: 3, currentPage: p }" class="list-group">
 
             <!--  <li class="collection-item">{{question.moreAnswers}}</li> -->
@@ -10,7 +12,8 @@
                     <div class="card">
                         <div class="card border-info mb-3">
                             <div class="card-header">
-                                <h5 class="card-title"><i class="fas fa-question-circle"></i><strong> {{question.questionDef}}</strong></h5>
+                                <h5 class="card-title"><i class="fas fa-question-circle"></i><strong>
+                                        {{question.questionDef}}</strong></h5>
 
                             </div>
                             <div class="card-body text-info">
@@ -32,9 +35,9 @@
 
         </ul>
         <div class="container mt-3">
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
-        
+
     </div>
     <ng-template #loadingData>
         <br>

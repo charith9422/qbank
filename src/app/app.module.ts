@@ -19,6 +19,7 @@ import { QuestionsService } from './services/questions.service';
 import { AlertModule } from 'ngx-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 
 
@@ -45,7 +46,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AlertModule.forRoot(),
     AppRoutingModule,
     CoreModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FilterPipeModule
     //NgbModule.forRoot()
    // BsDropdownModule.forRoot(),
     //CollapseModule.forRoot()
