@@ -17,7 +17,8 @@ import { CoreModule } from './core/core.module';
 import { QuestionsService } from './services/questions.service';
 
 import { AlertModule } from 'ngx-bootstrap';
-import { HeaderComponent } from './ui/header/header.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 
@@ -26,7 +27,8 @@ import { HeaderComponent } from './ui/header/header.component';
   declarations: [
     AppComponent,
     routingComponents,
-    HeaderComponent
+    LoginComponent
+    
   
     
   

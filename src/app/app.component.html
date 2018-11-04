@@ -1,7 +1,8 @@
 <div *ngIf="user.uid | async as uid; else login">
         <!-- {{uid}}
         <button class="btn btn-primary" (click)="user.logout()">Logout</button> -->
-        <app-questions></app-questions>     
+        <router-outlet></router-outlet>
+             
 
 </div>
 <ng-template #login>
