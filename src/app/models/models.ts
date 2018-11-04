@@ -1,6 +1,5 @@
 export interface Question {
   id?:string,
-  date:string,
   questionDef: string;
   language: string;
   answer: string;

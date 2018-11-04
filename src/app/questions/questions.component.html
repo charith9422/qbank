@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container pt-2">
     <div *ngIf="questions?.length > 0;else loadingData" class=" mt-5 p-3">
-        <ul *ngFor="let question of questions" class="list-group">
+        <ul *ngFor="let question of questions | paginate : { itemsPerPage: 3, currentPage: p }" class="list-group">
 
             <!--  <li class="collection-item">{{question.moreAnswers}}</li> -->
 
@@ -9,11 +9,12 @@
                 <div class="card-deck">
                     <div class="card">
                         <div class="card border-info mb-3">
-                            <div class="card-header"><i class="fab fa-java"></i> <strong> Language:</strong>
-                                {{question.language}}</div>
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="fas fa-question-circle"></i><strong> {{question.questionDef}}</strong></h5>
+
+                            </div>
                             <div class="card-body text-info">
-                                <h5 class="card-title"><i class="fas fa-question-circle"></i> <strong> Question:</strong>
-                                    {{question.questionDef}}</h5>
+                                <i class="fab fa-java"></i> <strong> Language:</strong>{{question.language}}
                                 <blockquote class="blockquote card-text"><i class="fas fa-quote-left"></i>
                                     {{question.answer}} <i class="fas fa-quote-right"></i></blockquote>
                                 <div *ngIf="question.moreAnswers?.length > 0;">
@@ -30,6 +31,10 @@
             </li>
 
         </ul>
+        <div class="container mt-3">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        
     </div>
     <ng-template #loadingData>
         <br>

@@ -18,6 +18,7 @@ import { QuestionsService } from './services/questions.service';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { LoginComponent } from './login/login.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -43,7 +44,8 @@ import { LoginComponent } from './login/login.component';
     AngularFireAuthModule,
     AlertModule.forRoot(),
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    NgxPaginationModule
     //NgbModule.forRoot()
    // BsDropdownModule.forRoot(),
     //CollapseModule.forRoot()

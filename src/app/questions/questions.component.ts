@@ -13,8 +13,11 @@ import { UserService } from '../services/user.service';
 export class QuestionsComponent implements OnInit {
 
   questions: Question[];
+  
 
-  constructor(public questionsService : QuestionsService , public user:UserService) { }
+  constructor(public questionsService : QuestionsService , public user:UserService) { 
+    
+  }
 
   ngOnInit() {
     this.questionsService.getQuestions().subscribe(questions =>{
