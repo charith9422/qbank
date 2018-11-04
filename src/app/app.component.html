@@ -1,2 +1,13 @@
-<router-outlet></router-outlet>
- 
+<div *ngIf="user.uid | async as uid; else login">
+        <!-- {{uid}}
+        <button class="btn btn-primary" (click)="user.logout()">Logout</button> -->
+        <app-questions></app-questions>     
+
+</div>
+<ng-template #login>
+
+    <!-- you need to login 
+    <button class="btn btn-primary" (click)="user.googleLogin()">Login</button> //this is for testing-->
+    <app-login></app-login>
+</ng-template>
+

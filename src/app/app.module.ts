@@ -8,27 +8,26 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule,routingComponents } from './app-routing.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CoreModule } from './core/core.module';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 
 import { QuestionsService } from './services/questions.service';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { UiModule } from './ui/ui.module';
+
+import { AlertModule } from 'ngx-bootstrap';
+import { HeaderComponent } from './ui/header/header.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    PageNotFoundComponent,
-    UserProfileComponent,
+    HeaderComponent
+  
     
   
     
@@ -40,9 +39,9 @@ import { UiModule } from './ui/ui.module';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    AlertModule.forRoot(),
     AppRoutingModule,
-    CoreModule,
-    UiModule,
+    CoreModule
     //NgbModule.forRoot()
    // BsDropdownModule.forRoot(),
     //CollapseModule.forRoot()

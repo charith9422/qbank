@@ -2,9 +2,9 @@
   <h2 style="text-align:center">Sign In</h2>
   <hr>
 
-  
+
   <!-- {{addQuestionForm.value | json}}   -->
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="">Registration No</label>
       <input type="text" class="form-control" formControlName="registrationNo" [class.is-invalid]="registrationNo.invalid && registrationNo.touched">
@@ -20,11 +20,12 @@
       </div> -->
     </div>
     <button class="btn btn-block btn-primary">Login</button>
-    <button (click)="auth.googleLogin()" class="btn btn-secondary btn-block">
-        <i class="fab fa-google"></i> Connect Google
-    </button>
-    <button class="btn btn-success btn-block" routerLink="/questions" routerLinkActive="active">Guest</button>
+
   </form>
+  <button (click)="user.googleLogin()" class="btn btn-secondary btn-block">
+    <i class="fab fa-google"></i> Connect Google
+  </button>
   
+
 
 </div>
