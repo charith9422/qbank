@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private router: Router,public user:UserService) { }
+ 
+  constructor(private route:ActivatedRoute,private router: Router,public user:UserService ) { }
 
   ngOnInit() {
   }

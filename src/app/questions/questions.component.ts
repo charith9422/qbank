@@ -3,6 +3,7 @@ import { QuestionsService } from '../services/questions.service';
 import { Question } from '../models/models';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { FilterPipe } from 'ngx-filter-pipe';
 
 
 @Component({
@@ -13,9 +14,11 @@ import { UserService } from '../services/user.service';
 export class QuestionsComponent implements OnInit {
 
   questions: Question[];
+  searchTerm:string;
+  //questionFilter: any = { language: '' };
   
 
-  constructor(public questionsService : QuestionsService , public user:UserService) { 
+  constructor(public questionsService : QuestionsService , public user:UserService ) { 
     
   }
 

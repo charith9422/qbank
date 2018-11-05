@@ -1,9 +1,18 @@
 <app-header></app-header>
 
 <div class="container pt-2">
+
+
     <div *ngIf="questions?.length > 0;else loadingData" class=" mt-5 p-3">
-                    
-        <ul *ngFor="let question of questions | paginate : { itemsPerPage: 3, currentPage: p }" class="list-group">
+        <div class="col-xs-6 col-md-6 p-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Filter by language" id="txtSearch" [(ngModel)]="searchTerm" />
+                
+            </div>
+        </div>
+        <hr>
+
+        <ul *ngFor="let question of questions | paginate : { itemsPerPage: 10, currentPage: p } | questionFilter:searchTerm" class="list-group">
 
             <!--  <li class="collection-item">{{question.moreAnswers}}</li> -->
 

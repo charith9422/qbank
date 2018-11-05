@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -20,6 +20,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { QuestionFilterPipe } from './questions/question-filter.pipe';
 
 
 
@@ -29,7 +30,8 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
   declarations: [
     AppComponent,
     routingComponents,
-    LoginComponent
+    LoginComponent,
+    QuestionFilterPipe
     
   
     
@@ -47,7 +49,8 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
     AppRoutingModule,
     CoreModule,
     NgxPaginationModule,
-    FilterPipeModule
+    FilterPipeModule,
+    FormsModule
     //NgbModule.forRoot()
    // BsDropdownModule.forRoot(),
     //CollapseModule.forRoot()
