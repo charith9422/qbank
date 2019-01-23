@@ -19,7 +19,8 @@
       *ngFor="
         let question of (questions
           | paginate: { itemsPerPage: 10, currentPage: p }
-          | questionFilter: searchTerm)
+          | questionFilter: searchTerm
+          )
       "
       class="list-group"
     >

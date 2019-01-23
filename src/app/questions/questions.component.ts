@@ -16,6 +16,7 @@ export class QuestionsComponent implements OnInit {
  
   questions: Question[];
   searchTerm:string;
+  addedDate:Date;
   
   //questionFilter: any = { language: '' };
   
@@ -26,6 +27,7 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.getQuestions().subscribe(questions =>{
       console.log(questions);
       this.questions = questions;
+
     });
   }
 

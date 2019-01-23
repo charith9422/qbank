@@ -16,14 +16,14 @@ import { Timestamp } from 'rxjs/internal/operators/timestamp';
   styleUrls: ['./add-question.component.css']
 })
 export class AddQuestionComponent implements OnInit {
+
+  
   
   
   addQuestionForm : FormGroup;
   dateAdded: string;
   private questionCollection: AngularFirestoreCollection<Question>;
-  //submitted:boolean;   
-
-
+  
   
 
   questions: Observable<Question[]>;
@@ -35,8 +35,6 @@ export class AddQuestionComponent implements OnInit {
 
   addQuestion(question: Question){
     const id = this.afs.createId();
-    //const questionFinal: Question = { id , question};
-    //this.questionCollection.add(question);
     this.questionCollection.doc(id).set(question);
   }
 
@@ -55,13 +53,13 @@ export class AddQuestionComponent implements OnInit {
   addMoreAnswers(){
     this.moreAnswers.push(this.fb.control(''));
   }
-  //languages = ['Java' , 'C++' , 'Mysql' , 'MongoDb'];
+ 
   
 
   ngOnInit() {
     this.addQuestionForm = this.fb.group({
-      $key : [null],
-      date:[],
+    
+      date:[new Date],
       questionDef : ['',[Validators.required]],
       language : [''],
       answer : ['',[Validators.required]],
@@ -69,19 +67,7 @@ export class AddQuestionComponent implements OnInit {
     });  
   }
 
-  /*formatDate(date:Date):string{
-    const day = date.getDate();
-    const month = date.getMonth()+1;
-    const year = date.getFullYear();
-
-    return '${year}-${month}-${day}'
-
-  }
-
-  setDate(dateAdded){
-    this.dateAdded = this.formatDate(dateAdded);
-  }
-*/
+ 
   onSubmit() {
     console.log(this.addQuestionForm.value);
     
