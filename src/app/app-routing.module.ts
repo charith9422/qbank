@@ -5,6 +5,9 @@ import { AuthGuard } from './core/auth.guard';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { HeaderComponent } from './ui/header/header.component';
+import { AdminGuard } from './core/admin.guard';
+import { CanReadGuard } from './core/can-read.guard';
+
 
 
 

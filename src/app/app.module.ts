@@ -21,6 +21,10 @@ import { LoginComponent } from './login/login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { QuestionFilterPipe } from './questions/question-filter.pipe';
+import { SubscriberPageComponent } from './subscriber-page/subscriber-page.component';
+import { CKEditorModule } from 'ngx-ckeditor';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { SafeHtmlPipe } from './safeHtml.pipe';
 
 
 
@@ -31,12 +35,9 @@ import { QuestionFilterPipe } from './questions/question-filter.pipe';
     AppComponent,
     routingComponents,
     LoginComponent,
-    QuestionFilterPipe
-    
-  
-    
-  
-    
+    QuestionFilterPipe,
+    SubscriberPageComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,9 @@ import { QuestionFilterPipe } from './questions/question-filter.pipe';
     CoreModule,
     NgxPaginationModule,
     FilterPipeModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule,
+    EditorModule
     //NgbModule.forRoot()
    // BsDropdownModule.forRoot(),
     //CollapseModule.forRoot()

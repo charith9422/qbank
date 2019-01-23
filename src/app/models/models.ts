@@ -12,9 +12,3 @@ export interface Question {
 
 
 
-export interface User {
-  uid: string;
-  email: string;
-  registrationNo?: string;
-  password?: string;
-}

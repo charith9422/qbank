@@ -17,6 +17,7 @@ import { Timestamp } from 'rxjs/internal/operators/timestamp';
 })
 export class AddQuestionComponent implements OnInit {
   
+  
   addQuestionForm : FormGroup;
   dateAdded: string;
   private questionCollection: AngularFirestoreCollection<Question>;

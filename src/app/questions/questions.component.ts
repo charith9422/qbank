@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { QuestionsService } from '../services/questions.service';
 import { Question } from '../models/models';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { FilterPipe } from 'ngx-filter-pipe';
-
 
 @Component({
   selector: 'app-questions',
@@ -13,14 +12,15 @@ import { FilterPipe } from 'ngx-filter-pipe';
 })
 export class QuestionsComponent implements OnInit {
 
+
+ 
   questions: Question[];
   searchTerm:string;
+  
   //questionFilter: any = { language: '' };
   
 
-  constructor(public questionsService : QuestionsService , public user:UserService ) { 
-    
-  }
+  constructor(public questionsService : QuestionsService , public user:UserService) { }
 
   ngOnInit() {
     this.questionsService.getQuestions().subscribe(questions =>{

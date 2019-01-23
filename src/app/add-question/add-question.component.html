@@ -35,7 +35,8 @@
       <div class="form-group">
         <label for="">Answer</label>
 
-        <textarea [class.is-invalid]="answer.invalid && answer.touched" class="form-control" rows="3" formControlName="answer"></textarea>
+        <!-- <textarea [class.is-invalid]="answer.invalid && answer.touched" class="form-control" rows="3" formControlName="answer"></textarea> -->
+        <editor apiKey="test" formControlName="answer" [init]="{plugins:'link'}" [class.is-invalid]="answer.invalid && answer.touched"></editor>
         <small class="text-danger" [class.d-none]="answer.valid || answer.untouched">Answer is required</small>
         <button [disabled]="answer.invalid" class="btn btn-secondary btn-sm mt-1" (click)="addMoreAnswers()" type="button">Add
           More Answers</button>
