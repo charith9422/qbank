@@ -86,6 +86,7 @@ export class AddQuestionComponent implements OnInit {
     console.log(this.addQuestionForm.value);
     
     this.addQuestion(this.addQuestionForm.value);
+    this.router.navigate(['/questions']);
     
   
 
