@@ -32,11 +32,11 @@
               <div class="card-header">
                 <h5 class="card-title">
                   <i class="fas fa-question-circle"></i
-                  ><strong> {{ question.questionDef }}</strong>
+                  ><strong style="color:#000000;"> {{ question.questionDef }}</strong>
                 </h5>
               </div>
               <div class="card-body text-info">
-                <i class="fab fa-java"></i> <strong> Language:</strong
+                <i class="fab fa-java"></i> <strong style="color:#000000;"> Language:</strong
                 >{{ question.language }}
                 <blockquote class="blockquote card-text">
                   <div [innerHTML]="question.answer | safeHtml"></div>
@@ -44,7 +44,7 @@
                 <div *ngIf="question.moreAnswers?.length > 0">
                   <hr />
                   <i class="fas fa-arrow-right"></i
-                  ><strong class="card-text"> More Answers:</strong>
+                  ><strong class="card-text" style="color:#000000;"> More Answers:</strong>
                   <p>"{{ question.moreAnswers }}"</p>
                 </div>
               </div>
