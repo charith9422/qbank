@@ -1,31 +1,76 @@
-<div class="container my-4 px-5 col-md-5">
-  <h2 style="text-align:center">Sign In</h2>
-  <hr>
+<div class="wrapper">
 
+  <div class="container">
+    <h2 style="text-align:center"></h2>
+    <div class="jumbotron">
+      
+      <h1 class="display-4"><strong>Question Bank</strong> | <span><small>Faculty of Science</small></span> </h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+        featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
 
-  <!-- {{addQuestionForm.value | json}}   -->
-  <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="">Registration No</label>
-      <input type="text" class="form-control" formControlName="registrationNo" [class.is-invalid]="registrationNo.invalid && registrationNo.touched">
-      <div *ngIf="registrationNo.invalid && registrationNo.touched">
-        <small *ngIf="registrationNo.errors ?.required" class="text-danger">Registration number is required</small>
+    </div>
+    <hr>
+
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+
+          <button class="btn btn-primary btn-lg" onclick="document.getElementById('id01').style.display='block'"
+            style="width:auto;"> <i class="fas fa-sign-in-alt"></i> Enter Site</button>
+
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="">Password</label>
-      <input type="text" class="form-control" formControlName="password">
-      <!-- <div *ngIf="">
-        <small *ngIf="" class="text-danger">Question is required</small>
-      </div> -->
-    </div>
-    <button class="btn btn-block btn-primary">Login</button>
 
-  </form>
-  <button (click)="auth.googleLogin()" class="btn btn-secondary btn-block mt-1">
-    <i class="fab fa-google"></i> Connect Google
-  </button>
+    </div>
+    <div class="">
+
+    </div>
+    <div id="id01" class="modal">
+
+      <form class="modal-content animate">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close">&times;</span>
+          <img src="../../assets/images/user.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+          <!-- <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
   
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+  
+        <button type="submit">Login</button> -->
+          <button (click)="auth.googleLogin()" class="btn btn-secondary btn-block mt-1">
+            <i class="fab fa-google"></i> Connect Google
+          </button>
+          <!-- <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label> -->
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn">Cancel</button>
+
+        </div>
+      </form>
+    </div>
+
+    <script>
+
+      var modal = document.getElementById('id01');
 
 
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+
+  </div>
 </div>
