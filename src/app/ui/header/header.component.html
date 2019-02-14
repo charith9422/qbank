@@ -6,9 +6,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
+
       <li class="nav-item">
-        <a class="nav-link" routerLink="/add-question" routerLinkActive="active">Add Question</a><!-- [routerLink]="'/add-question'" routerLinkActive="active" -->
+        <nav>
+          <a class="nav-link" routerLink="/add-question" routerLinkActive="active">Add Question</a>
+          <!-- [routerLink]="'/add-question'" routerLinkActive="active" -->
+
+        </nav>
         <!-- <button class="btn btn-secondary" (click)="addQuestion()">Add Question</button> -->
       </li>
 
@@ -17,10 +21,10 @@
     <!-- <div class="form-inline my-2 my-md-0">
       <input class="form-control" [(ngModel)]="userFilter.name" type="text" placeholder="Search">
     </div> -->
-    
 
-     
-    
+
+
+
     <ul class="nav navbar-nav navbar-right">
 
       <li class="nav-item">
@@ -33,4 +37,3 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-

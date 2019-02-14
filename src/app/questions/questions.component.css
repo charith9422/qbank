@@ -1,0 +1,10 @@
+.outerbox{
+    background-image: url('../../assets/images/jumbotron-bg.jpg');
+}
+.box{
+    background-image: url('../../assets/images/login-bg.jpg');
+}
+.innerbox{
+    background-color: #061c3f;
+}
+

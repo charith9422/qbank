@@ -25,6 +25,7 @@ import { SubscriberPageComponent } from './subscriber-page/subscriber-page.compo
 import { CKEditorModule } from 'ngx-ckeditor';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { SafeHtmlPipe } from './safeHtml.pipe';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -53,7 +54,8 @@ import { SafeHtmlPipe } from './safeHtml.pipe';
     FilterPipeModule,
     FormsModule,
     CKEditorModule,
-    EditorModule
+    EditorModule,
+    NgxSpinnerModule
     //NgbModule.forRoot()
    // BsDropdownModule.forRoot(),
     //CollapseModule.forRoot()

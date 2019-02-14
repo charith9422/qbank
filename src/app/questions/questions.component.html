@@ -1,74 +1,64 @@
 <app-header></app-header>
-
-<div class="container pt-2">
-  <div *ngIf="questions?.length > 0; else loadingData" class=" mt-5 p-3">
-    <div class="col-xs-6 col-md-6 p-2">
-      <div class="input-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Filter by language"
-          id="txtSearch"
-          [(ngModel)]="searchTerm"
-        />
+<ngx-spinner></ngx-spinner>
+<div class="outerbox">
+  <div class="container pt-2 box">
+    <div *ngIf="questions?.length > 0; else loadingData" class=" mt-5 p-3">
+      <div class="col-xs-6 col-md-6 p-2 innerbox">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Filter by language" id="txtSearch"
+            [(ngModel)]="searchTerm" />
+        </div>
       </div>
-    </div>
-    <hr />
+      <hr />
+      <div class="innercard">
+        <ul *ngFor="
+              let question of (questions
+                | paginate: { itemsPerPage: 10, currentPage: p }
+                | questionFilter: searchTerm
+                )
+            " class="list-group innercard">
+          <!--  <li class="collection-item">{{question.moreAnswers}}</li> -->
 
-    <ul
-      *ngFor="
-        let question of (questions
-          | paginate: { itemsPerPage: 10, currentPage: p }
-          | questionFilter: searchTerm
-          )
-      "
-      class="list-group"
-    >
-      <!--  <li class="collection-item">{{question.moreAnswers}}</li> -->
-
-      <li class="list-group-item">
-        <div class="card-deck">
-          <div class="card">
-            <div class="card border-info mb-3">
-              <div class="card-header">
-                <h5 class="card-title">
-                  <i class="fas fa-question-circle"></i
-                  ><strong style="color:#000000;"> {{ question.questionDef }}</strong>
-                </h5>
-              </div>
-              <div class="card-body text-info">
-                <i class="fab fa-java"></i> <strong style="color:#000000;"> Language:</strong
-                >{{ question.language }}
-                <blockquote class="blockquote card-text">
-                  <div [innerHTML]="question.answer | safeHtml"></div>
-                </blockquote>
-                <div *ngIf="question.moreAnswers?.length > 0">
-                  <hr />
-                  <i class="fas fa-arrow-right"></i
-                  ><strong class="card-text" style="color:#000000;"> More Answers:</strong>
-                  <p>"{{ question.moreAnswers }}"</p>
+          <li class="list-group-item">
+            <div class="card-deck">
+              <div class="card">
+                <div class="card border-info mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">
+                      <i class="fas fa-question-circle"></i><strong style="color:#0cf7bc;">
+                        {{ question.questionDef }}</strong>
+                    </h5>
+                  </div>
+                  <div class="card-body text-info">
+                    <i class="fab fa-java"></i> <strong style="color:#0cf7bc;">
+                      Language:</strong>{{ question.language }}
+                    <blockquote class="blockquote card-text">
+                      <div [innerHTML]="question.answer | safeHtml"></div>
+                    </blockquote>
+                    <div *ngIf="question.moreAnswers?.length > 0">
+                      <hr />
+                      <i class="fas fa-arrow-right"></i><strong class="card-text" style="color:#0cf7bc;"> More
+                        Answers:</strong>
+                      <p>"{{ question.moreAnswers }}"</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div class="container mt-3">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </li>
+        </ul>
+      </div>
+      <div class="container mt-3">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
+    <!-- <ng-template #loadingData>
+      <br />
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+          aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+      </div>
+    </ng-template> -->
   </div>
-  <ng-template #loadingData>
-    <br />
-    <div class="progress">
-      <div
-        class="progress-bar progress-bar-striped progress-bar-animated"
-        role="progressbar"
-        aria-valuenow="75"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 75%"
-      ></div>
-    </div>
-  </ng-template>
+
 </div>

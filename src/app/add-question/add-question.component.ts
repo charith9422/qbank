@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Question } from '../models/models';
 import { Router, RouterModule } from '@angular/router';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -27,7 +27,7 @@ export class AddQuestionComponent implements OnInit {
   
 
   questions: Observable<Question[]>;
-  constructor(private fb : FormBuilder,private afs : AngularFirestore,private router:Router,private route:RouterModule) {//
+  constructor(private spinner: NgxSpinnerService,private fb : FormBuilder,private afs : AngularFirestore,private router:Router,private route:RouterModule) {//
     this.questionCollection = afs.collection<Question>('questions'); 
     this.questions = this.questionCollection.valueChanges();
   }
@@ -65,6 +65,7 @@ export class AddQuestionComponent implements OnInit {
       answer : ['',[Validators.required]],
       moreAnswers: this.fb.array([])
     });  
+    
   }
 
  
@@ -72,6 +73,10 @@ export class AddQuestionComponent implements OnInit {
     console.log(this.addQuestionForm.value);
     
     this.addQuestion(this.addQuestionForm.value);
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2500);
     this.router.navigate(['/questions']);
     
   
